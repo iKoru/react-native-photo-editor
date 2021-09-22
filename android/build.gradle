@@ -37,13 +37,17 @@ android {
 }
 
 repositories {
+    maven {url "$rootDir/../node_modules/react-native/android"}
     google()
     mavenCentral()
-    maven { url 'https://www.jitpack.io' }
+    maven {url 'https://www.jitpack.io'}
 }
 
 dependencies {
-    implementation 'com.facebook.react:react-native:+'
+    implementation ('com.facebook.react:react-native:+'){
+            exclude group:'com.facebook.fbjni'
+        exclude group:'com.facebook.yoga'
+    }
     implementation 'com.github.prscX:photo-editor-android:master-SNAPSHOT'
     implementation 'fr.avianey.com.viewpagerindicator:library:2.4.1@aar'
     implementation 'com.nineoldandroids:library:2.4.0'

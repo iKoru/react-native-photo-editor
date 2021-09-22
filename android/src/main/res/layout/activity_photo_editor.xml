@@ -66,23 +66,18 @@
                 android:textSize="20sp"
                 android:visibility="gone" />
 
-            <TextView
+            <ImageView
                 android:id="@+id/erase_drawing_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
                 android:layout_toStartOf="@+id/done_drawing_tv"
+                android:contentDescription="@string/erase"
                 android:padding="10dp"
-                android:shadowColor="#000000"
-                android:shadowDx="1"
-                android:shadowDy="1"
-                android:shadowRadius="2"
-                android:text="@string/erase"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                android:visibility="gone" />
+                android:visibility="gone"
+                tools:src="@drawable/ic_eraser3x" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/drawing_view_color_picker_recycler_view"
@@ -116,45 +111,17 @@
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/add_text_tv"
+                    android:id="@+id/go_to_next_screen_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/done"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:layout_alignBaseline="@id/close_tv"
+                    android:paddingTop="11sp"
+                    android:paddingRight="30sp"
                     android:layout_alignParentEnd="true"
-                    android:layout_alignParentTop="true"
-                    android:padding="15dp"
-                    android:text="@string/ic_text"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/add_pencil_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toStartOf="@+id/add_text_tv"
-                    android:padding="15dp"
-                    android:text="@string/ic_draw"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/add_crop_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toStartOf="@+id/add_pencil_tv"
-                    android:padding="15dp"
-                    android:text="@string/ic_crop"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/add_image_emoji_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toStartOf="@+id/add_crop_tv"
-                    android:padding="15dp"
-                    android:text="@string/ic_images"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp" />
+                    />
 
 
             </RelativeLayout>
@@ -179,52 +146,75 @@
                     android:id="@+id/save_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignEnd="@+id/save_text_tv"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
                     android:gravity="center"
                     android:text="@string/ic_save"
                     android:textColor="#FFFFFF"
-                    android:textSize="25sp" />
+                    android:textSize="25sp"
+                    android:visibility="gone" />
 
-                <TextView
-                    android:id="@+id/save_text_tv"
+                <ImageView
+                    android:id="@+id/add_crop_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@+id/save_tv"
                     android:layout_centerVertical="true"
+                    android:layout_marginStart="5dp"
                     android:layout_marginTop="4dp"
-                    android:text="@string/save"
-                    android:textColor="#FFFFFF"
-                    android:textSize="15sp" />
+                    android:contentDescription="@string/crop"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    tools:src="@drawable/ic_crop3x" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    >
+
+                    <ImageView
+                        android:id="@+id/add_pencil_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/draw"
+                        android:layout_toStartOf="@id/add_text_tv"
+                        android:padding="15dp"
+                        tools:src="@drawable/ic_pen3x" />
+
+                    <ImageView
+                        android:id="@+id/add_text_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/text"
+                        android:padding="15dp"
+                        tools:src="@drawable/ic_text3x" />
+                </LinearLayout>
+
 
                 <TextView
+                    android:id="@+id/add_image_emoji_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:text="@string/ic_images"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:visibility="gone" />
+
+                <ImageView
                     android:id="@+id/clear_all_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignEnd="@+id/clear_all_text_tv"
+                    android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="4dp"
+                    android:layout_marginRight="5dp"
                     android:layout_toEndOf="@+id/save_tv"
+                    android:contentDescription="@string/erase"
                     android:gravity="center"
-                    android:text="@string/ic_clear_all"
-                    android:textColor="#FFFFFF"
-                    android:textSize="25sp" />
-
-                <TextView
-                    android:id="@+id/clear_all_text_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/clear_all_tv"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_toEndOf="@+id/save_tv"
-                    android:text="@string/clear_all"
-                    android:textColor="#FFFFFF"
-                    android:textSize="15sp" />
+                    tools:src="@drawable/ic_eraser3x" />
 
                 <TextView
                     android:id="@+id/undo_tv"
@@ -254,16 +244,6 @@
                     android:textColor="#FFFFFF"
                     android:textSize="15sp"
                     android:visibility="gone" />
-
-                <TextView
-                    android:id="@+id/go_to_next_screen_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:text="@string/ic_continue"
-                    android:textColor="#FFFFFF"
-                    android:textSize="40sp" />
 
             </RelativeLayout>
 

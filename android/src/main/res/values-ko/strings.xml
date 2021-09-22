@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">사진편집</string>
+    <string name="title_activity_photo_editor">사진 편집</string>
+    <string name="done">완료</string>
+    <string name="save">저장</string>
+    <string name="clear_all">되돌리기</string>
+    <string name="camera">카메라</string>
+    <string name="gallery">사진첩</string>
+    <string name="upload_dialog_title">사진 업로드</string>
+    <string name="upload_picker_title">사진 선택</string>
+    <string name="directory_create_fail">이미지 폴더를 생성하지 못했습니다.</string>
+    <string name="access_media_permissions_msg">사진을 선택하기 위해서는 사진첩 접근 권한이 필요합니다.</string>
+    <string name="continue_txt">계속</string>
+    <string name="not_now">다음에</string>
+    <string name="media_access_denied_msg">사진을 선택하기 위해서는 사진첩 접근 권한이 필요합니다.</string>
+    <string name="save_image_succeed">저장되었습니다.</string>
+
+    <string name="ic_close">"\ue918"</string>
+    <string name="ic_text">"\ue945"</string>
+    <string name="ic_draw">""\ue944</string>
+    <string name="ic_images">"\ue949"</string>
+    <string name="ic_save">"\ue946"</string>
+    <string name="ic_clear_all">"\ue947"</string>
+    <string name="ic_continue">"\ue948"</string>
+    <string name="ic_delete">"\ue92c"</string>
+    <string name="ic_crop">&#xf565;</string>
+    <string name="choose_from_gallery">사진첩에서 선택</string>
+    <string name="choose_from_camera">새로운 사진 촬영</string>
+    <string name="undo">실행취소</string>
+    <string name="erase">지우기</string>
+    <string name="text">텍스트</string>
+    <string name="draw">그리기</string>
+    <string name="crop">자르기</string>
+
+</resources>

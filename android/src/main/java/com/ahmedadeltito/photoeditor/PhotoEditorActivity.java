@@ -79,7 +79,8 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
     private final String TAG = "PhotoEditorActivity";
     private RelativeLayout parentImageRelativeLayout;
     private RecyclerView drawingViewColorPickerRecyclerView;
-    private TextView undoTextView, undoTextTextView, doneDrawingTextView, eraseDrawingTextView;
+    private TextView undoTextView, undoTextTextView, doneDrawingTextView;
+    private ImageView eraseDrawingTextView;
     private SlidingUpPanelLayout mLayout;
     private View topShadow;
     private RelativeLayout topShadowRelativeLayout;
@@ -139,20 +140,18 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
         drawingViewColorPickerRecyclerView = (RecyclerView) findViewById(R.id.drawing_view_color_picker_recycler_view);
         parentImageRelativeLayout = (RelativeLayout) findViewById(R.id.parent_image_rl);
         TextView closeTextView = (TextView) findViewById(R.id.close_tv);
-        TextView addTextView = (TextView) findViewById(R.id.add_text_tv);
-        TextView addPencil = (TextView) findViewById(R.id.add_pencil_tv);
+        ImageView addTextView = (ImageView) findViewById(R.id.add_text_tv);
+        ImageView addPencil = (ImageView) findViewById(R.id.add_pencil_tv);
         RelativeLayout deleteRelativeLayout = (RelativeLayout) findViewById(R.id.delete_rl);
         TextView deleteTextView = (TextView) findViewById(R.id.delete_tv);
         TextView addImageEmojiTextView = (TextView) findViewById(R.id.add_image_emoji_tv);
-        TextView addCropTextView = (TextView) findViewById(R.id.add_crop_tv);
+        ImageView addCropTextView = (ImageView) findViewById(R.id.add_crop_tv);
         TextView saveTextView = (TextView) findViewById(R.id.save_tv);
-        TextView saveTextTextView = (TextView) findViewById(R.id.save_text_tv);
         undoTextView = (TextView) findViewById(R.id.undo_tv);
         undoTextTextView = (TextView) findViewById(R.id.undo_text_tv);
         doneDrawingTextView = (TextView) findViewById(R.id.done_drawing_tv);
-        eraseDrawingTextView = (TextView) findViewById(R.id.erase_drawing_tv);
-        TextView clearAllTextView = (TextView) findViewById(R.id.clear_all_tv);
-        TextView clearAllTextTextView = (TextView) findViewById(R.id.clear_all_text_tv);
+        eraseDrawingTextView = (ImageView) findViewById(R.id.erase_drawing_tv);
+        ImageView clearAllTextView = (ImageView) findViewById(R.id.clear_all_tv);
         TextView goToNextTextView = (TextView) findViewById(R.id.go_to_next_screen_tv);
         photoEditImageView = (ImageView) findViewById(R.id.photo_edit_iv);
         mLayout = (SlidingUpPanelLayout) findViewById(R.id.sliding_layout);
@@ -167,13 +166,10 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
         photoEditImageView.setImageBitmap(rotatedBitmap);
 
         closeTextView.setTypeface(newFont);
-        addTextView.setTypeface(newFont);
-        addPencil.setTypeface(newFont);
+
         addImageEmojiTextView.setTypeface(newFont);
-        addCropTextView.setTypeface(fontAwesome);
         saveTextView.setTypeface(newFont);
         undoTextView.setTypeface(newFont);
-        clearAllTextView.setTypeface(newFont);
         goToNextTextView.setTypeface(newFont);
         deleteTextView.setTypeface(newFont);
 
@@ -233,13 +229,11 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
         addTextView.setOnClickListener(this);
         addPencil.setOnClickListener(this);
         saveTextView.setOnClickListener(this);
-        saveTextTextView.setOnClickListener(this);
         undoTextView.setOnClickListener(this);
         undoTextTextView.setOnClickListener(this);
         doneDrawingTextView.setOnClickListener(this);
         eraseDrawingTextView.setOnClickListener(this);
         clearAllTextView.setOnClickListener(this);
-        clearAllTextTextView.setOnClickListener(this);
         goToNextTextView.setOnClickListener(this);
 
         ArrayList<Integer> intentColors = (ArrayList<Integer>) getIntent().getExtras().getSerializable("colorPickerColors");
@@ -281,13 +275,11 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
             }
             if (hiddenControls.get(i).toString().equalsIgnoreCase("clear")) {
                 clearAllTextView.setVisibility(View.INVISIBLE);
-                clearAllTextTextView.setVisibility(View.INVISIBLE);
             }
             if (hiddenControls.get(i).toString().equalsIgnoreCase("draw")) {
                 addPencil.setVisibility(View.INVISIBLE);
             }
             if (hiddenControls.get(i).toString().equalsIgnoreCase("save")) {
-                saveTextTextView.setVisibility(View.INVISIBLE);
                 saveTextView.setVisibility(View.INVISIBLE);
             }
             if (hiddenControls.get(i).toString().equalsIgnoreCase("sticker")) {
@@ -588,9 +580,9 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
             updateBrushDrawingView(true);
         } else if (v.getId() == R.id.done_drawing_tv) {
             updateBrushDrawingView(false);
-        } else if (v.getId() == R.id.save_tv || v.getId() == R.id.save_text_tv) {
+        } else if (v.getId() == R.id.save_tv) {
             returnBackWithSavedImage();
-        } else if (v.getId() == R.id.clear_all_tv || v.getId() == R.id.clear_all_text_tv) {
+        } else if (v.getId() == R.id.clear_all_tv) {
             clearAllViews();
         } else if (v.getId() == R.id.undo_text_tv || v.getId() == R.id.undo_tv) {
             undoViews();

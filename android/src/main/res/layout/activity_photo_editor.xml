@@ -77,6 +77,7 @@
                 android:contentDescription="@string/erase"
                 android:padding="10dp"
                 android:visibility="gone"
+                android:layout_alignBaseline="@id/done_drawing_tv"
                 android:src="@drawable/ic_eraser3x"
                 tools:src="@drawable/ic_eraser3x" />
 
@@ -214,8 +215,9 @@
                     android:layout_centerVertical="true"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="4dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_toEndOf="@+id/save_tv"
+                    android:paddingRight="5dp"
+                    android:paddingVertical="15dp"
+                    android:paddingLeft="15dp"
                     android:contentDescription="@string/erase"
                     android:gravity="center"
                     android:src="@drawable/ic_eraser3x"
